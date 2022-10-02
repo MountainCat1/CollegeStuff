@@ -1,37 +1,40 @@
-const boardSize = 20;
+const boardSize = 30;
 
-let fiboArray = Fibo(4)
+let fiboArray = Fibo(9)
 let dots = FiboDraw(fiboArray);
 
 DrawBoard(dots);
 
-function FiboDraw(fiboArray,) {
+function FiboDraw(fiboArray) {
     var i;
     var dots = new Object();
 
-    //dots[[0,0]] = "X"
+    // dots[[0,0]] = "X"
 
     var direction = 1;
-    var point = [0, 0]
+    var point = [0, -2]
 
     DrawSquare(0, 0, 1, dots, 1)
-    //DrawSquare(1, 0, 1, dots, 1)
+    DrawSquare(1, 0, 1, dots, 1)
 
     for (i = 1; i < fiboArray.length; i++) {
-        //DrawSquare(point[0], point[1], fiboArray[i], dots, fiboArray[i])
+        DrawSquare(point[0], point[1], fiboArray[i], dots, i)
 
         switch (direction) {
             case 1:
-                point[1] += -fiboArray[i]
+                point[0] += fiboArray[i]
                 break;
             case 2:
-                point[0] +=  fiboArray[i]
+                point[1] +=  fiboArray[i]
+                point[0] -=  fiboArray[i - 1]
                 break;
             case 3:
-                point[1] +=  fiboArray[i]
+                point[0] -= fiboArray[i + 1]
+                point[1] -= fiboArray[i - 1]
                 break;
-            case 2:
-                point[0] +=  -fiboArray[i]
+            case 4:
+
+                point[1] -= fiboArray[i + 1]
                 break;
         }
 
@@ -48,11 +51,15 @@ function FiboDraw(fiboArray,) {
 function DrawSquare(x, y, size, array, character) {
     var _x;
     var _y;
+    var allowOverwriting = false;
 
     for (_x = x; _x < x + size; _x++)
-        for (_y = x; _y < y + size; _y++) {
-            if (array[[_x, -_y]] === undefined)
+        for (_y = y; _y < y + size; _y++) {
+            if (allowOverwriting || array[[_x, -_y]] === undefined)
                 array[[_x, -_y]] = character
+            else{
+                console.log(`Overwrite on ${[[_x, _y]]}`)
+            }
         }
 }
 
