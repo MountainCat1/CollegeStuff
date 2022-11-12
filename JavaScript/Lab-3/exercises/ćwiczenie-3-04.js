@@ -14,10 +14,27 @@
 
 
 function parseStudents(input) {
-    
+    if(input == null || input.length === 0)
+        return []
+
+    let students = input
+        .split('\n')
+        .map(line => {
+            let props = line.split('\t');
+            return {
+                name: props[0],
+                ects: parseInt(props[1]),
+                active: props[2] == 'aktywny'
+            }
+        })
+        .filter(student => student.ects >= 0 && student.active != null);
+
+    return students ?? [];
 }
 
 const studentLines = "Adam\t123\taktywny\nEwa\t34\tnieaktywna\nRoman\t56\taktywny\nKazik\t-34\taktyw\nBogdan\tfalse";
+
+let students = parseStudents(studentLines)
 
 try {
     if (students.length == 3) {
