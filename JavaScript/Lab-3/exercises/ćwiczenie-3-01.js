@@ -5,7 +5,14 @@
  */
 
 function largestNumber(arr){
-    
+    if(arr === null)
+        return undefined
+    if(arr === undefined)
+        return undefined;
+    if(arr.length === 0)
+        return undefined;
+
+    return Math.max(...arr.flatMap(num => num))
 }
 
 let arr1 = [[1, 2, 3, 5], [2, 6, 8], [1, 67], [4, 6, 98]];
@@ -20,3 +27,4 @@ if (largestNumber(arr2) === undefined) {
 } else {
     console.log("Test 12 failed.");
 }
+
