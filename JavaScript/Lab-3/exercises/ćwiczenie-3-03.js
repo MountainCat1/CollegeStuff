@@ -12,7 +12,17 @@
  */
 
 function makeTransaction(transaction){
-    
+    if(transaction == null)
+        throw new Error();
+
+    if(!('amount' in transaction))
+        throw new Error();
+    if(!('sourceAccount' in transaction))
+        throw new Error('Impossible to complete the transaction. Absent property sourceAccount in transaction!');
+    if(!('targetAccount' in transaction))
+        throw new Error('Impossible to complete the transaction. Absent property targetAccount in transaction!');
+    if(transaction.amount < 0)
+        throw new Error('Impossible to complete the transaction. Amount is negative!');
 }
 
 try {
