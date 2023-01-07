@@ -1,0 +1,124 @@
+body {
+    background: #ADADDA;
+    font-family: 'Roboto Mono', monospace;
+}
+.title{
+    width: 340px;
+    margin: auto;
+}
+
+.calc-panel {
+    width: 300px;
+    padding: 20px;
+    background: gray;
+    border-radius: 4px;
+    margin: 20px auto auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.header {
+    width: 300px;
+    height: 40px;
+    text-align: right;
+}
+
+.digits {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+}
+
+.display {
+    color: #555555;
+    margin: 0;
+    padding: 10px;
+    width: 280px;
+    background: orange;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.keypad {
+    position: relative;
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    margin-top: 20px;
+    padding: 0;
+    width: 300px;
+    height: auto;
+}
+
+button {
+    font-family: "Roboto Thin", monospace;
+    font-size: 20px;
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:hover {
+    cursor: pointer;
+    outline: none;
+}
+
+button:active {
+    outline: none;
+    transform: translateY(2px);
+}
+
+button:focus {
+    outline: 0;
+}
+
+.double-row {
+    height: 140px;
+}
+
+.double-col {
+    width: 140px;
+}
+
+.right-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.space-col {
+    width: 20px;
+}
+
+.space-row {
+    height: 20px;
+    width: 300px;
+}
+
+.empty {
+    width: 60px;
+}
+
+.bordered {
+    border: solid 1px;
+}
+
+#memory {
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+}
+
+#history {
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+}
