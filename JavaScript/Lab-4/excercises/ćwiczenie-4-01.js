@@ -24,6 +24,80 @@
  *  Dopasuj konstruktor do przykładowego wywołania w testach.
  */
 class TodoTask {
+    #created;
+    #finished;
+    #done;
+    #deadline;
+    #description;
+
+    get created() {
+        return this.#created;
+    }
+
+    set created(value) {
+        if(this.done)
+            return;
+
+        this.#created = value;
+    }
+    get finished() {
+        return this.#finished;
+    }
+
+    set finished(value) {
+        if(this.done)
+            return;
+
+        this.#finished = value;
+    }
+    get done() {
+        return this.#done;
+    }
+
+    set done(value) {
+        if(this.done)
+            return;
+
+        if(this.#deadline < new Date())
+            return;
+
+        this.#done = value;
+
+        if(this.#done){
+            this.#finished = new Date();
+        }
+    }
+    get deadline() {
+        return this.#deadline;
+    }
+
+    set deadline(value) {
+        if(this.done)
+            return;
+
+        this.#deadline = value;
+    }
+    get description() {
+        return this.#description;
+    }
+
+    set description(value) {
+        if(this.done)
+            return;
+
+        this.#description = value;
+    }
+    constructor(description, deadline) {
+        this.#description = description;
+        this.#deadline = deadline;
+
+        this.#done = false;
+        this.#finished = null;
+        this.#created = new Date();
+
+        if(this.#deadline < new Date())
+            throw new Error();
+    }
 }
 
 
@@ -53,6 +127,7 @@ try {
     task.deadline = new Date(2000, 20, 10);
     task.description = "";
     task.done = false;
+
     if (task.done
         && d1.getYear() === d2.getYear()
         && d1.getMonth() === d2.getMonth()

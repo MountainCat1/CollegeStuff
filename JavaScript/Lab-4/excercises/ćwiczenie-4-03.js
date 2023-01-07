@@ -7,7 +7,18 @@
  * Map(5) {size: 5, a => 2, b => 1, c => 3, d => 1, g => 1}
  */
 function frequences(str){
+    const map = new Map();
 
+    for (let i = 0; i < str.length; i++) {
+        const character = str.charAt(i)
+        if(map.has(character)){
+            map.set(character, map.get(character)+1);
+        }else{
+            map.set(character, 1);
+        }
+    }
+
+    return map;
 }
 
 try{
