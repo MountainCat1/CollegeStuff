@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="travelForm.js" defer></script>
+    <link href="./styles.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <form novalidate>
+        <fieldset>
+            <label for="start-location">Miejsce wyjazdu</label>
+            <select id="start-location">
+                <option value="S1">Warszawa</option>
+                <option value="S2">Kraków</option>
+                <option value="S3">Wrocław</option>
+                <option value="S4">Gdańsk</option>
+                <option value="S5">Poznań</option>
+            </select>
+            <span class="error">Brak połączenia między tymi miastami</span>
+            <label for="end-location">Miejsce przyjazdu</label>
+            <select id="end-location">
+                <option value="E1">Warszawa</option>
+                <option value="E2">Kraków</option>
+                <option value="E3">Wrocław</option>
+                <option value="E4">Gdańsk</option>
+                <option value="E5">Poznań</option>
+            </select>
+            <span class="error">ddfsf</span>
+        </fieldset>
+        <fieldset>
+        <label for="start-date">Data rozpoczęcia pobytu</label>
+        <input name="start-date" id="start-date" type="date" />
+            <span class="error">sdfsdf</span>
+        <label for="end-date">Data zakończenia pobytu</label>
+        <input name="end-date" id="end-date" type="date" />
+            <span class="error">sdfsdf</span>
+        </fieldset>
+        <button type="submit">Zatwierdź</button>
+    </form>
+</div>
+</body>
+
+</html>

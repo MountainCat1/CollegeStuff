@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="./styles.css">
+    <title>Document</title>
+    <script src="./form.js" defer></script>
+</head>
+<body>
+    <form id="form-book" novalidate>
+        <label for="title">Tytuł</label>
+        <input id="title" name="title" type="text" maxlength="5" minlength="2" value="JavaScript" required/>
+        <label for="editionYear">Rok wydania</label>
+        <input id="editionYear" name="editionYear" type="number" min="2000" max="2023"/>
+        <button type="submit">Zapisz</button>
+    </form>
+</body>
+
+</html>
