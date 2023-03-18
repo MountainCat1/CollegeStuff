@@ -12,13 +12,10 @@ const calculateBtn = document.getElementById("calculateBtn");
 const modeSelect = document.getElementsByTagName('fieldset')[0];
 
 const getMode = () => {
-    console.log(modeSelect)
     for (let i = 0; i < modeSelect.children.length; i++) {
         const selectElement = modeSelect.children[i].children[0];
-        console.log(selectElement)
+
         if (selectElement.checked){
-            console.log('returning')
-            console.log( selectElement)
             return selectElement;
         }
 
@@ -46,9 +43,33 @@ async function fetchData(date) {
     return fetch(proxyUrl + targetUrl, option)
 }
 
+function updateTexts(){
+    console.log(getMode().value)
+    if(getMode().value !== 'bid'){
+        inputLabel.innerText = 'Chcę dostać'
+        outputLabel.innerText = 'Płacę'
+    }else{
+        inputLabel.innerText = 'Mam'
+        outputLabel.innerText = 'Dostanę'
+    }
+}
+
+document.onclick = updateTexts;// ('click', updateTexts);
+
 selectDate.value = '2023-01-19'
 
-inputCode.appendChild(createCurrencyEntryDiv('EUR', 'EUR'))
+fetchData('2023-01-19').then(x => x.json()).then(x => {
+    let rates = x[0].rates;
+    console.log(rates)
+
+    rates.forEach(x => {
+        inputCode.appendChild(createCurrencyEntryDiv('EUR', 'EUR'))
+    })
+});
+
+
+
+
 inputCode.appendChild(createCurrencyEntryDiv('USD', 'USD'))
 inputCode.appendChild(createCurrencyEntryDiv('PLN', 'PLN'))
 
@@ -60,34 +81,47 @@ calculateBtn.addEventListener('click', async (e) => {
     const data = await fetchData(selectDate.value)
         .then(x => x.json())
 
-    console.log(data)
     const rates = data[0].rates;
-    console.log(rates);
 
-    let selectedCurrency = undefined;
+
+    let selectedInputCurrency = undefined;
     for (let i = 0; i < inputCode.children.length; i++) {
         const child = inputCode.children[i];
         if(child.selected)
-            selectedCurrency = child.value;
+            selectedInputCurrency = child.value;
     }
 
-    let currencyToCalculate = rates.filter(x => x.code === selectedCurrency)[0];
+    let selectedOutputCurrency = undefined;
+    for (let i = 0; i < outputCode.children.length; i++) {
+        const child = outputCode.children[i];
+        if(child.selected)
+            selectedOutputCurrency = child.value;
+    }
+
+    let inputCurrencyToCalculate = rates.filter(x => x.code === selectedInputCurrency)[0];
+    let outputCurrencyToCalculate = rates.filter(x => x.code === selectedOutputCurrency)[0];
+
+    if(inputCurrencyToCalculate === undefined)
+        inputCurrencyToCalculate = {bid: 1, ask: 1, code: 'PLN'}
+    if(outputCurrencyToCalculate === undefined)
+        outputCurrencyToCalculate = {bid: 1, ask: 1, code: 'PLN'}
+
 
     const mode = getMode();
 
-    let rate = undefined;
-    console.log(mode)
+    let inputRate = undefined;
     if(mode.value === 'bid')
-        rate = currencyToCalculate.bid;
+        inputRate = inputCurrencyToCalculate.bid;
     else
-        rate = currencyToCalculate.ask;
+        inputRate = inputCurrencyToCalculate.ask;
 
-    console.log(rate)
+    let outputRate = undefined;
+    if(mode.value === 'bid')
+        outputRate = outputCurrencyToCalculate.bid;
+    else
+        outputRate = outputCurrencyToCalculate.ask;
 
-
-    console.log()
-    console.log()
-    outputAmount.innerText =  inputAmount.value  * rate + ' PLN';
+    outputAmount.innerText =  inputAmount.value * inputRate / outputRate + ' ' + outputCurrencyToCalculate.code;
 })
 
 
