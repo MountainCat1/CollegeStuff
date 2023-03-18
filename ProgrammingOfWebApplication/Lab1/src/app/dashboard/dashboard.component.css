@@ -1,0 +1,15 @@
+:host {
+
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.dashboard-grid-element {
+  margin: 2em;
+  padding: 1em;
+
+  box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.2);
+}
