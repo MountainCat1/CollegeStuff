@@ -14,7 +14,6 @@ import {ReactiveFormsModule} from '@angular/forms';
     CssGeneratorComponent,
     CssInputComponent,
     CssOutputComponent,
-
   ],
   imports: [
     BrowserModule,

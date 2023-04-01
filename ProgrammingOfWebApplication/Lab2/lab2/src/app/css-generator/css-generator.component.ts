@@ -10,8 +10,13 @@ export class CssGeneratorComponent {
   cssModel: CSS = { color: '', border: '', 'box-shadow': '', background: '' };
 
   get css(): string {
-    return `color: ${this.cssModel.color}; border: ${this.cssModel.border}; background: ${this.cssModel.background};`;
+    return `
+    color: ${this.cssModel.color};
+    border: ${this.cssModel.border};
+    background: ${this.cssModel.background};
+  `;
   }
+
 
   onCssChanged(css: CSS): void {
     console.log(css)

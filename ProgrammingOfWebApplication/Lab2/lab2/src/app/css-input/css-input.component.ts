@@ -7,11 +7,9 @@ import {CSS} from "../models/css.model";
   styleUrls: ['./css-input.component.scss']
 })
 export class CssInputComponent {
-  @Input() defaultCss: CSS = { color: 'default', border: '', 'box-shadow': '', background: '' };
   @Output() cssChange = new EventEmitter<CSS>();
 
-  protected css: CSS = this.defaultCss;
-
+  protected css: CSS = { color: 'default', border: '', 'box-shadow': '', background: '' };
   handleChange() {
     console.log("emmited: ", this.css)
 

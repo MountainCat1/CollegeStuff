@@ -9,4 +9,9 @@
   border-radius: 20px;
 
   box-shadow: rgba(0, 0, 0, 0.48) 5px 5px 15px 5px;
+
+}
+
+:host>*{
+  margin-top: 1em;
 }
