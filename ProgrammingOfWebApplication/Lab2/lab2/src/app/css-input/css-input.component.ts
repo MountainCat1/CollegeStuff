@@ -8,8 +8,7 @@ import {CSS} from "../models/css.model";
 })
 export class CssInputComponent {
   @Output() cssChange = new EventEmitter<CSS>();
-
-  protected css: CSS = { color: 'default', border: '', 'box-shadow': '', background: '' };
+  @Input() css : CSS = {"box-shadow": undefined, background: undefined, border: undefined, color: undefined};
   handleChange() {
     console.log("emmited: ", this.css)
 
