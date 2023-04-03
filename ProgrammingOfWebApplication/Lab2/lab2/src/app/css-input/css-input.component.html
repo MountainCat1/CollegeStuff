@@ -1,20 +1,17 @@
 
-  <label>
+  <label class="css-input-entry">
     Color:
     <input type="text" [(ngModel)]="css.color" (blur)="handleChange()">
   </label>
-  <br />
-  <label>
+  <label class="css-input-entry">
     Border:
-    <input [(ngModel)]="css.border" (blur)="handleChange()" />
+    <input type="text" [(ngModel)]="css.border" (blur)="handleChange()" />
   </label>
-  <br />
-  <label>
+  <label class="css-input-entry">
     Box Shadow:
     <input type="text" [(ngModel)]="css['box-shadow']" (blur)="handleChange()" />
   </label>
-  <br />
-  <label>
+  <label class="css-input-entry">
     Background:
     <input type="text" [(ngModel)]="css.background" (blur)="handleChange()" />
   </label>
