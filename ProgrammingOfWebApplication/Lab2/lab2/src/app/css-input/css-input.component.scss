@@ -1,0 +1,19 @@
+:host{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 1em;
+  grid-row-gap: 0.5em;
+}
+
+@media (min-width: 650px) {
+  :host {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.css-input-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
