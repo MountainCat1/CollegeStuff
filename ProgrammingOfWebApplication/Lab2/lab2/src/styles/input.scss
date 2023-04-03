@@ -9,7 +9,7 @@ textarea {
   outline: none;
   box-shadow: none;
   font-family: inherit; /* optionally inherit font family from parent */
-  font-size: inherit; /* optionally inherit font size from parent */
+  //font-size: inherit; /* optionally inherit font size from parent */
   /* add any other styling you want here */
 }
 
@@ -17,6 +17,8 @@ input {
   background-color: var(--color1);
   border-radius: 0.25em;
 
-  padding: 0.2em;
+  padding: 0.4em;
   width: 10em;
+
+  font-size: 16px;
 }

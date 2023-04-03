@@ -7,6 +7,7 @@ import {CssInputComponent} from './css-input/css-input.component';
 import {CssOutputComponent} from './css-output/css-output.component';
 import {FormsModule} from "@angular/forms";
 import {ReactiveFormsModule} from '@angular/forms';
+import { CssVisualisationComponent } from './css-visualisation/css-visualisation.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     CssGeneratorComponent,
     CssInputComponent,
     CssOutputComponent,
+    CssVisualisationComponent,
   ],
   imports: [
     BrowserModule,

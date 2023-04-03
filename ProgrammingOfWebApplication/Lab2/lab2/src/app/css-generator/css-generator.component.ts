@@ -7,13 +7,14 @@ import {CSS} from "../models/css.model";
   styleUrls: ['./css-generator.component.scss']
 })
 export class CssGeneratorComponent {
-  cssModel: CSS = { color: '', border: '', 'box-shadow': '', background: '' };
+  cssModel: CSS = { color: 'red', border: 'solid blue', 'box-shadow': 'black 15px 15px', background: 'green' };
 
   get css(): string {
     return `
     color: ${this.cssModel.color};
     border: ${this.cssModel.border};
     background: ${this.cssModel.background};
+    box-shadow: ${this.cssModel["box-shadow"]}
   `;
   }
 
