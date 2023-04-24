@@ -1,0 +1,96 @@
+<form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()">
+  <h2>Dane wystawcy</h2>
+  <div formGroupName="issuer">
+    <div>
+      <label>Nazwa</label>
+      <input formControlName="name">
+      <div *ngIf="issuer.controls.name.errors?.required" class="error">
+        Pole wymagane
+      </div>
+    </div>
+    <div>
+      <label>Miasto</label>
+      <input formControlName="city">
+      <div *ngIf="issuer.controls.city.errors?.required" class="error">
+        Pole wymagane
+      </div>
+    </div>
+    <div>
+      <label>Adres</label>
+      <input formControlName="address">
+      <div *ngIf="issuer.controls.address.errors?.required" class="error">
+        Pole wymagane
+      </div>
+    </div>
+    <div>
+      <label>Kod pocztowy</label>
+      <input formControlName="postalCode">
+      <div *ngIf="issuer.controls.postalCode.errors?.required" class="error">
+        Pole wymagane
+      </div>
+    </div>
+    <div>
+      <label>NIP</label>
+      <input formControlName="nip">
+      <div *ngIf="issuer.controls.nip.errors?.required" class="error">
+        Pole wymagane
+      </div>
+    </div>
+    <div>
+      <label>Nr konta bankowego</label>
+      <input formControlName="bankAccountNumber">
+      <div *ngIf="issuer.controls.bankAccountNumber.errors?.required" class="error">
+        Pole wymagane
+      </div>
+    </div>
+  </div>
+  <h2>Dane zamawiającego</h2>
+  <div formGroupName="customer">
+    <div>
+      <label>Nazwa</label>
+      <input formControlName="name">
+      <div *ngIf="customer.controls.name.errors?.required" class="error">
+        Pole wymagane
+      </div>
+    </div>
+    <div>
+      <label>Miasto</label>
+      <input formControlName="city">
+      <div *ngIf="customer.controls.city.errors?.required" class="error">
+        Pole wymagane
+      </div>
+    </div>
+    <div>
+      <label>Adres</label>
+      <input formControlName="address">
+      <div *ngIf="customer.controls.address.errors?.required" class="error">
+        Pole wymagane
+      </div>
+    </div>
+    <div>
+      <label>Kod pocztowy</label>
+      <input formControlName="postalCode">
+      <div *ngIf="customer.controls.postalCode.errors?.required" class="error">
+        Pole wymagane
+      </div>
+    </div>
+    <div>
+      <label>NIP</label>
+      <input formControlName="nip">
+    </div>
+  </div>
+  <div>
+    <label>Nr faktury</label>
+    <input formControlName="invoiceNumber">
+    <div *ngIf="invoiceForm.controls.invoiceNumber.errors?.required" class="error">
+      Pole wymagane
+    </div>
+  </div>
+  <div>
+    <label>Data wystawienia</label>
+    <input type="date" formControlName="issueDate">
+    <div *ngIf="invoiceForm.controls.issueDate.errors?.required" class="error">
+      Pole wymagane
+    </div>
+  </div>
+</form>

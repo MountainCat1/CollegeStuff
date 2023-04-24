@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  background: linear-gradient(to bottom, deeppink, purple);
+
+  height: 100vh;
+  margin: 0;
+}
+
+.error {
+  color: red;
+}
+
